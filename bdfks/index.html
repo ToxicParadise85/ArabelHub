@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
 
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
 <title>NextWatchMedia</title>
 
@@ -64,28 +63,6 @@ font-size:13px;
 
 
 /* =========================
-   NATIVE ADS
-========================= */
-
-.ads-card{
-margin:12px;
-background:#121212;
-border-radius:20px;
-padding:14px;
-border:1px solid rgba(255,255,255,0.05);
-overflow:hidden;
-}
-
-.ads-label{
-color:#777;
-font-size:11px;
-text-transform:uppercase;
-margin-bottom:12px;
-letter-spacing:1px;
-}
-
-
-/* =========================
    VIDEO CARD
 ========================= */
 
@@ -134,7 +111,7 @@ align-items:center;
 justify-content:center;
 font-size:15px;
 font-weight:600;
-letter-spacing:.5px;
+letter-spacing:0.5px;
 z-index:10;
 }
 
@@ -154,13 +131,13 @@ text-decoration:none;
 font-size:15px;
 font-weight:700;
 border-radius:12px;
-box-shadow:0 5px 15px rgba(255,0,102,.3);
-transition:transform .2s,opacity .2s;
+box-shadow:0 5px 15px rgba(255,0,102,0.3);
+transition:transform 0.2s,opacity 0.2s;
 }
 
 .watch-full-btn:active{
-transform:scale(.98);
-opacity:.9;
+transform:scale(0.98);
+opacity:0.9;
 }
 
 
@@ -203,6 +180,28 @@ flex-wrap:wrap;
 padding:18px 16px 10px;
 font-size:18px;
 font-weight:700;
+}
+
+
+/* =========================
+   NATIVE BANNER
+========================= */
+
+.ads-card{
+margin:12px;
+background:#121212;
+border-radius:20px;
+padding:14px;
+border:1px solid rgba(255,255,255,0.05);
+overflow:hidden;
+}
+
+.ads-label{
+color:#777;
+font-size:11px;
+text-transform:uppercase;
+margin-bottom:12px;
+letter-spacing:1px;
 }
 
 
@@ -254,31 +253,6 @@ Watch trending viral videos everyday 🔥
 
 
 <!-- =====================================================
-     NATIVE BANNER #1
-     DI ATAS VIDEO
-===================================================== -->
-
-<div class="ads-card">
-
-<div class="ads-label">
-<center>Advertisement</center>
-</div>
-
-<div style="text-align:center;">
-
-<script
-data-cfasync="false"
-async
-type="text/javascript"
-src="//qw.rolledipocras.com/tiTtAiKEeLuZ/151239">
-</script>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
      VIDEO CARD
 ===================================================== -->
 
@@ -292,12 +266,12 @@ Video load in 1 second...
 
 
 <video
-controls
+controls="controls"
 controlsList="nodownload noremoteplayback"
-disablePictureInPicture
+disablePictureInPicture="disablePictureInPicture"
 id="player"
-muted
-playsinline
+muted="muted"
+playsinline="playsinline"
 poster="https://via.placeholder.com/480x720?text=Loading..."
 preload="metadata">
 
@@ -363,8 +337,7 @@ Watch the latest viral content people are talking about right now.
 
 
 <!-- =====================================================
-     NATIVE BANNER #2
-     DI BAWAH VIDEO
+     NATIVE BANNER
 ===================================================== -->
 
 <div class="ads-card">
@@ -472,8 +445,8 @@ document.body
 const videoCard=
 document.querySelector(".video-card");
 
-const adCards=
-document.querySelectorAll(".ads-card");
+const adCard=
+document.querySelector(".ads-card");
 
 
 /* =========================
@@ -498,6 +471,9 @@ return;
 
 }
 
+
+/* VIDEO IMPRESSION */
+
 if(entry.target===videoCard){
 
 tagImpression(
@@ -507,17 +483,18 @@ entry.target
 
 }
 
-if(entry.target.classList.contains("ads-card")){
 
-const index=
-Array.from(adCards).indexOf(entry.target)+1;
+/* NATIVE BANNER IMPRESSION */
+
+if(entry.target===adCard){
 
 tagImpression(
-"native_banner_impression_"+index,
+"native_banner_impression",
 entry.target
 );
 
 }
+
 
 observer.unobserve(
 entry.target
@@ -545,13 +522,15 @@ videoCard
 }
 
 
-/* Observe both native banners */
+/* Observe native banner */
 
-adCards.forEach(function(ad){
+if(adCard){
 
-observer.observe(ad);
+observer.observe(
+adCard
+);
 
-});
+}
 
 }else{
 
@@ -560,14 +539,10 @@ tagImpression(
 videoCard
 );
 
-adCards.forEach(function(ad,index){
-
 tagImpression(
-"native_banner_impression_"+(index+1),
-ad
+"native_banner_impression",
+adCard
 );
-
-});
 
 }
 
@@ -585,7 +560,7 @@ let video=
 params.get("v");
 
 
-/* Default Videy ID */
+/* Default video */
 
 if(!video){
 
@@ -604,6 +579,7 @@ video=
 "https://cdn.videy.co/"+video;
 
 }
+
 
 if(!video.endsWith(".mp4")){
 
@@ -626,7 +602,13 @@ const loader=
 document.getElementById("videoLoader");
 
 
-source.src=video;
+/* Set video */
+
+source.src=
+video;
+
+
+/* Load video */
 
 player.load();
 
@@ -637,7 +619,8 @@ player.load();
 
 setTimeout(function(){
 
-loader.style.display="none";
+loader.style.display=
+"none";
 
 player.play().catch(
 function(){}
@@ -669,7 +652,7 @@ e.preventDefault();
 
 <div id="histats_counter"></div>
 
-<script>
+<script type="text/javascript">
 
 var _Hasync=_Hasync||[];
 
@@ -743,4 +726,3 @@ src="//lx.casedesuvre.com/rH0RY3WKA5xv/155941">
 </body>
 
 </html>
-
