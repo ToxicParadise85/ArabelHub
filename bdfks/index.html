@@ -1,14 +1,15 @@
+```html
 <!DOCTYPE html>
-<html lang='id'>
+<html lang="id">
 
 <head>
 
-<meta charset='UTF-8'/>
-<meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>NextWatchMedia</title>
 
-<style id='page-skin-1' type='text/css'>
+<style>
 
 *{
 margin:0;
@@ -23,8 +24,6 @@ overflow-x:hidden;
 color:#fff;
 }
 
-/* BACKGROUND */
-
 body::before{
 content:"";
 position:fixed;
@@ -35,8 +34,6 @@ radial-gradient(circle at bottom,#0055ff22,transparent 35%);
 z-index:-1;
 }
 
-/* PAGE */
-
 .page{
 width:100%;
 max-width:480px;
@@ -44,8 +41,6 @@ margin:auto;
 min-height:100vh;
 padding-bottom:50px;
 }
-
-/* HEADER */
 
 .header{
 padding:18px;
@@ -67,7 +62,32 @@ color:#999;
 font-size:13px;
 }
 
-/* VIDEO CARD */
+
+/* =========================
+   NATIVE ADS
+========================= */
+
+.ads-card{
+margin:12px;
+background:#121212;
+border-radius:20px;
+padding:14px;
+border:1px solid rgba(255,255,255,0.05);
+overflow:hidden;
+}
+
+.ads-label{
+color:#777;
+font-size:11px;
+text-transform:uppercase;
+margin-bottom:12px;
+letter-spacing:1px;
+}
+
+
+/* =========================
+   VIDEO CARD
+========================= */
 
 .video-card{
 margin:12px;
@@ -78,8 +98,6 @@ box-shadow:
 0 0 0 1px rgba(255,255,255,0.05),
 0 20px 40px rgba(0,0,0,0.45);
 }
-
-/* VIDEO */
 
 .video-box{
 position:relative;
@@ -106,8 +124,6 @@ background:linear-gradient(to top,#000000dd,transparent);
 pointer-events:none;
 }
 
-/* VIDEO LOADER */
-
 #videoLoader{
 position:absolute;
 inset:0;
@@ -118,26 +134,14 @@ align-items:center;
 justify-content:center;
 font-size:15px;
 font-weight:600;
-letter-spacing:0.5px;
+letter-spacing:.5px;
 z-index:10;
 }
 
-/* BADGE */
 
-.badge{
-position:absolute;
-top:12px;
-left:12px;
-background:#ff2f6d;
-padding:8px 12px;
-border-radius:50px;
-font-size:12px;
-font-weight:700;
-z-index:5;
-box-shadow:0 5px 15px rgba(255,0,102,0.4);
-}
-
-/* WATCH FULL VID BUTTON */
+/* =========================
+   WATCH BUTTON
+========================= */
 
 .watch-full-btn{
 display:block;
@@ -150,16 +154,19 @@ text-decoration:none;
 font-size:15px;
 font-weight:700;
 border-radius:12px;
-box-shadow:0 5px 15px rgba(255,0,102,0.3);
-transition:transform 0.2s,opacity 0.2s;
+box-shadow:0 5px 15px rgba(255,0,102,.3);
+transition:transform .2s,opacity .2s;
 }
 
 .watch-full-btn:active{
-transform:scale(0.98);
-opacity:0.9;
+transform:scale(.98);
+opacity:.9;
 }
 
-/* INFO */
+
+/* =========================
+   VIDEO INFO
+========================= */
 
 .video-info{
 padding:16px;
@@ -187,7 +194,10 @@ font-size:13px;
 flex-wrap:wrap;
 }
 
-/* SECTION */
+
+/* =========================
+   SECTION
+========================= */
 
 .section-title{
 padding:18px 16px 10px;
@@ -195,26 +205,10 @@ font-size:18px;
 font-weight:700;
 }
 
-/* ADS */
 
-.ads-card{
-margin:12px;
-background:#121212;
-border-radius:20px;
-padding:14px;
-border:1px solid rgba(255,255,255,0.05);
-overflow:hidden;
-}
-
-.ads-label{
-color:#777;
-font-size:11px;
-text-transform:uppercase;
-margin-bottom:12px;
-letter-spacing:1px;
-}
-
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 .footer{
 text-align:center;
@@ -223,7 +217,6 @@ font-size:12px;
 padding:30px 15px;
 }
 
-/* MOBILE */
 
 @media(max-width:480px){
 
@@ -237,117 +230,41 @@ font-size:18px;
 
 </head>
 
+
 <body>
 
-<div class='page'>
+<div class="page">
 
-<!-- HEADER -->
 
-<div class='header'>
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-<div class='logo'>
+<div class="header">
+
+<div class="logo">
 Next Viral <span>Hubs</span>
 </div>
 
-<div class='sub'>
+<div class="sub">
 Watch trending viral videos everyday 🔥
 </div>
 
 </div>
 
 
-<!-- VIDEO CARD -->
+<!-- =====================================================
+     NATIVE BANNER #1
+     DI ATAS VIDEO
+===================================================== -->
 
-<div class='video-card'>
+<div class="ads-card">
 
-<div class='video-box'>
-
-<!-- LAYAR LOADING -->
-
-<div id='videoLoader'>
-Video load in 1 second...
-</div>
-
-
-<video
-controls='controls'
-controlsList='nodownload noremoteplayback'
-disablePictureInPicture='disablePictureInPicture'
-id='player'
-muted='muted'
-playsinline='playsinline'
-poster='https://via.placeholder.com/480x720?text=Loading...'
-preload='metadata'
->
-
-<source
-id='videoSource'
-src=''
-type='video/mp4'>
-</source>
-
-</video>
-
-</div>
-
-
-<!-- WATCH FULL VID -->
-
-<a
-class='watch-full-btn'
-href='https://x-hubb.github.io/Badiesgirlhub/'
->
-Watch Full Vid
-</a>
-
-
-<div class='video-info'>
-
-<div class='video-title'>
-Hot Trending Video Tonight 😍
-</div>
-
-<div class='video-desc'>
-Watch the latest viral content people are talking about right now.
-</div>
-
-<div class='stats'>
-
-<div>
-👁 7.3M Views
-</div>
-
-<div>
-&#10084;&#65039; 591K Likes
-</div>
-
-<div>
-🔥 Trending
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- TRENDING -->
-
-<div class='section-title'>
-🔥 Trending Videos
-</div>
-
-
-<!-- NATIVE BANNER -->
-
-<div class='ads-card'>
-
-<div class='ads-label'>
+<div class="ads-label">
 <center>Advertisement</center>
 </div>
 
-<div style='text-align:center;'>
+<div style="text-align:center;">
 
 <script
 data-cfasync="false"
@@ -361,11 +278,122 @@ src="//qw.rolledipocras.com/tiTtAiKEeLuZ/151239">
 </div>
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     VIDEO CARD
+===================================================== -->
 
-<div class='footer'>
+<div class="video-card">
 
-&#169; 2026 Viral Media &#8226; All Rights Reserved
+<div class="video-box">
+
+<div id="videoLoader">
+Video load in 1 second...
+</div>
+
+
+<video
+controls
+controlsList="nodownload noremoteplayback"
+disablePictureInPicture
+id="player"
+muted
+playsinline
+poster="https://via.placeholder.com/480x720?text=Loading..."
+preload="metadata">
+
+<source
+id="videoSource"
+src=""
+type="video/mp4">
+
+</video>
+
+</div>
+
+
+<!-- WATCH FULL VIDEO -->
+
+<a
+class="watch-full-btn"
+href="https://x-hubb.github.io/Badiesgirlhub/">
+
+Watch Full Vid
+
+</a>
+
+
+<div class="video-info">
+
+<div class="video-title">
+Hot Trending Video Tonight 😍
+</div>
+
+<div class="video-desc">
+Watch the latest viral content people are talking about right now.
+</div>
+
+<div class="stats">
+
+<div>
+👁 7.3M Views
+</div>
+
+<div>
+❤️ 591K Likes
+</div>
+
+<div>
+🔥 Trending
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     TRENDING
+===================================================== -->
+
+<div class="section-title">
+🔥 Trending Videos
+</div>
+
+
+<!-- =====================================================
+     NATIVE BANNER #2
+     DI BAWAH VIDEO
+===================================================== -->
+
+<div class="ads-card">
+
+<div class="ads-label">
+<center>Advertisement</center>
+</div>
+
+<div style="text-align:center;">
+
+<script
+data-cfasync="false"
+async
+type="text/javascript"
+src="//qw.rolledipocras.com/tiTtAiKEeLuZ/151239">
+</script>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+© 2026 Viral Media • All Rights Reserved
 
 </div>
 
@@ -376,10 +404,9 @@ src="//qw.rolledipocras.com/tiTtAiKEeLuZ/151239">
      JAVASCRIPT UTAMA
 ===================================================== -->
 
-<script type='text/javascript'>
+<script>
 
-(function () {
-
+(function(){
 
 /* =========================
    IMPRESSION TAGGING
@@ -387,8 +414,7 @@ src="//qw.rolledipocras.com/tiTtAiKEeLuZ/151239">
 
 const impressionSeen = new Set();
 
-
-function tagImpression(name, element){
+function tagImpression(name,element){
 
 if(!element || impressionSeen.has(name)){
 return;
@@ -396,15 +422,12 @@ return;
 
 impressionSeen.add(name);
 
-
-/* Local impression tracking */
-
 try{
 
-const key = "nextwatch_impressions";
+const key="nextwatch_impressions";
 
-const data = JSON.parse(
-localStorage.getItem(key) || "[]"
+const data=JSON.parse(
+localStorage.getItem(key)||"[]"
 );
 
 data.push({
@@ -423,9 +446,6 @@ JSON.stringify(data.slice(-100))
 );
 
 }catch(e){}
-
-
-/* Tandai element */
 
 element.setAttribute(
 "data-impression-tagged",
@@ -446,14 +466,14 @@ document.body
 
 
 /* =========================
-   VIDEO & ADS
+   ELEMENTS
 ========================= */
 
-const videoCard =
+const videoCard=
 document.querySelector(".video-card");
 
-const adCard =
-document.querySelector(".ads-card");
+const adCards=
+document.querySelectorAll(".ads-card");
 
 
 /* =========================
@@ -462,7 +482,7 @@ document.querySelector(".ads-card");
 
 if("IntersectionObserver" in window){
 
-const observer =
+const observer=
 new IntersectionObserver(
 
 (entries)=>{
@@ -471,17 +491,14 @@ entries.forEach(entry=>{
 
 if(
 !entry.isIntersecting ||
-entry.intersectionRatio < 0.25
+entry.intersectionRatio<0.25
 ){
 
 return;
 
 }
 
-
-/* VIDEO IMPRESSION */
-
-if(entry.target === videoCard){
+if(entry.target===videoCard){
 
 tagImpression(
 "video_impression",
@@ -490,20 +507,17 @@ entry.target
 
 }
 
+if(entry.target.classList.contains("ads-card")){
 
-/* NATIVE BANNER IMPRESSION */
-
-if(entry.target === adCard){
+const index=
+Array.from(adCards).indexOf(entry.target)+1;
 
 tagImpression(
-"native_banner_impression",
+"native_banner_impression_"+index,
 entry.target
 );
 
 }
-
-
-/* Stop observing setelah impression */
 
 observer.unobserve(
 entry.target
@@ -531,81 +545,69 @@ videoCard
 }
 
 
-/* Observe native banner */
+/* Observe both native banners */
 
-if(adCard){
+adCards.forEach(function(ad){
 
-observer.observe(
-adCard
-);
+observer.observe(ad);
 
-}
-
+});
 
 }else{
-
-
-/* Browser fallback */
 
 tagImpression(
 "video_impression",
 videoCard
 );
 
+adCards.forEach(function(ad,index){
+
 tagImpression(
-"native_banner_impression",
-adCard
+"native_banner_impression_"+(index+1),
+ad
 );
 
+});
+
 }
-
-
-/* =========================
-   SMARTLINK
-========================= */
-
-const smartlink =
-"https://www.facebook.com/janoub.lebnan/";
 
 
 /* =========================
    VIDEO PARAMETER
 ========================= */
 
-const params =
+const params=
 new URLSearchParams(
 window.location.search
 );
 
-let video =
+let video=
 params.get("v");
 
 
-/* Default video */
+/* Default Videy ID */
 
 if(!video){
 
-video =
-"4uBDMjpb1";
+video="4uBDMjpb1";
 
 }
 
 
-/* Tambahkan CDN Videy */
+/* =========================
+   VIDEY URL
+========================= */
 
 if(!video.startsWith("http")){
 
-video =
-"https://cdn.videy.co/" + video;
+video=
+"https://cdn.videy.co/"+video;
 
 }
 
-
-/* Tambahkan extension MP4 */
-
 if(!video.endsWith(".mp4")){
 
-video += ".mp4";
+video+=".mp4";
 
 }
 
@@ -614,23 +616,17 @@ video += ".mp4";
    VIDEO ELEMENT
 ========================= */
 
-const player =
+const player=
 document.getElementById("player");
 
-const source =
+const source=
 document.getElementById("videoSource");
 
-const loader =
+const loader=
 document.getElementById("videoLoader");
 
 
-/* Masukkan URL video */
-
-source.src =
-video;
-
-
-/* Load video */
+source.src=video;
 
 player.load();
 
@@ -641,19 +637,11 @@ player.load();
 
 setTimeout(function(){
 
-
-/* Hilangkan loading */
-
-loader.style.display =
-"none";
-
-
-/* Play video */
+loader.style.display="none";
 
 player.play().catch(
-()=>{}
+function(){}
 );
-
 
 },1000);
 
@@ -664,9 +652,11 @@ player.play().catch(
 
 player.addEventListener(
 "contextmenu",
-e=>e.preventDefault()
-);
+function(e){
 
+e.preventDefault();
+
+});
 
 })();
 
@@ -675,52 +665,44 @@ e=>e.preventDefault()
 
 <!-- =====================================================
      HISTATS
-     DITEMPATKAN DI LUAR SCRIPT UTAMA
 ===================================================== -->
 
-<div id='histats_counter'></div>
+<div id="histats_counter"></div>
 
-<script type="text/javascript">
+<script>
 
-var _Hasync = _Hasync || [];
-
-
-_Hasync.push([
-'Histats.start',
-'1,5044704,4,9,110,60,00011111'
-]);
-
+var _Hasync=_Hasync||[];
 
 _Hasync.push([
-'Histats.fasi',
-'1'
+"Histats.start",
+"1,5044704,4,9,110,60,00011111"
 ]);
-
 
 _Hasync.push([
-'Histats.track_hits',
-''
+"Histats.fasi",
+"1"
 ]);
 
+_Hasync.push([
+"Histats.track_hits",
+""
+]);
 
 (function(){
 
-var hs =
-document.createElement('script');
+var hs=
+document.createElement("script");
 
-hs.type =
-'text/javascript';
+hs.type="text/javascript";
 
-hs.async =
-true;
+hs.async=true;
 
-hs.src =
-'//s10.histats.com/js15_as.js';
-
+hs.src=
+"//s10.histats.com/js15_as.js";
 
 (
-document.getElementsByTagName('head')[0] ||
-document.getElementsByTagName('body')[0]
+document.getElementsByTagName("head")[0]||
+document.getElementsByTagName("body")[0]
 ).appendChild(hs);
 
 })();
@@ -743,10 +725,22 @@ border="0">
 
 
 <!-- =====================================================
-     END HISTATS
+     PROFITON POPUNDER
 ===================================================== -->
 
+<script
+data-cfasync="false"
+async
+type="text/javascript"
+src="//lx.casedesuvre.com/rH0RY3WKA5xv/155941">
+</script>
+
+
+<!-- =====================================================
+     END
+===================================================== -->
 
 </body>
 
 </html>
+
